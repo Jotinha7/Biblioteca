@@ -2,7 +2,7 @@ class FenwickTree {
   public:
     void init(int N) {
       n = N;
-      BIT.resize(n + 1);
+      BIT.assign(n + 1, 0ll);
     }
     void update(int i, int x) {
       for (int j = i; j <= n; j += j & -j)
