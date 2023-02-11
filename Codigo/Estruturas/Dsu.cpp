@@ -4,8 +4,8 @@ class DSU {
     vector<int> id, sz;
 
     DSU(int _n) : n(_n) {
-      sz.assign(n, 1);
-      id.resize(n);
+      sz = vector<int> (n, 1);
+      id = vector<int> (n);
       iota(id.begin(), id.end(), 0);
     }
 
@@ -35,7 +35,7 @@ class DSU {
       for(int i = 0; i < n; i++) {
         sz[i].push_back(i);
       }
-      id.resize(n);
+      id = vector<int> (n);
       iota(id.begin(), id.end(), 0);
     }
     
