@@ -1,7 +1,6 @@
 struct Qry { int l, r, id; };
 
 namespace mo {
-
   int n, m, cur, *a;
   vector<int> ans;
   Qry* q;
