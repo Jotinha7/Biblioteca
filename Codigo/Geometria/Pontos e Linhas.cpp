@@ -1,4 +1,8 @@
-//template de geometria - ricaxov v0.1
+//template de geometria - ricaxov v0.1.2 
+
+//upd:
+//(reducao do tamanho da area)
+
 typedef long double ld;
 
 const ld eps = 1e-9;
@@ -19,23 +23,13 @@ ld convertRad(ld deg) { //converter pra rad
 ld convertDeg(ld rad) { // converter pra graus
   return rad * 180.0 / pi;
 }
-ld matrix[maxn + 1][2];
-ld getArea(vector<point>& points) { // area de poligono convexo
+ld area(const vector<point>& points) { // area de poligono convexo e talvez concavo eu n sei ainda (obs: perguntar pro dimitri)
+  ld ans = 0.0;
   int n = (int)points.size();
-  for(int i = 0; i < n; i++) {
-    matrix[i][0] = points[i].x;
-    matrix[i][1] = points[i].y;
-  }
-  matrix[n][0] = points[0].x;
-  matrix[n][1] = points[0].y;
-  
-  ld x = 0.0, y = 0.0;
-  for(int i = 0; i < n; i++) {
-    x += matrix[i][0] * matrix[i + 1][1];
-    y += matrix[i][1] * matrix[i + 1][0];
-  }
-  
-  return abs(x - y) / 2.0;
+  for(int i = 0; i + 1 < n; i++) {
+		ans += (points[i].x * points[i + 1].y - points[i + 1].x * points[i].y);
+	}
+  return fabs(ans) / 2.0;
 }
 
 struct line {
