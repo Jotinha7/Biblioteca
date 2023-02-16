@@ -2,7 +2,9 @@
 
 using namespace std;
 
-//template de geometria - ricaxov v0.1.3 
+//template de geometria - ricaxov v0.2.0 
+
+//Circunferencia de um circulo que possui um triangulo inscrito -> a * b * c / (4 * area)
 
 typedef long double ld;
 
