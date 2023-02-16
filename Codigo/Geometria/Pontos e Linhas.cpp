@@ -4,9 +4,6 @@ using namespace std;
 
 //template de geometria - ricaxov v0.1.3 
 
-//upd:
-//const &, sobrecargas, papai ta chatinho
-
 typedef long double ld;
 
 const ld eps = 1e-9;
