@@ -4,19 +4,23 @@
 #define endl '\n'
 #define pb push_back
 #define tos to_string
-#define mod 998244353
-#define inf 1000000000
-#define pi 3.141592653589793
-#define linf 1000000000000000000
 #define all(x) x.begin(), x.end()
 #define rall(x) x.rbegin(), x.rend()
 #define entrada freopen("input.txt", "r", stdin);
 #define saida freopen("output.txt", "w", stdout);
+#define inbounds(x, l, r) ((l) <= (x) && (x) <= (r))
 
 using namespace std;
 
-typedef long long ll;
-typedef pair<int, int> ii;
+using ll = long long;
+using ii = pair<int, int>;
+using ld = long double;
+
+const ld eps = 1e-9;
+const int mod = 998244353;
+const int inf = 1000000000;
+const ld pi = 3.141592653589793;
+const ll linf = 1000000000000000000;
 
 void dbg() { cerr << endl; }
 template<typename X, typename...Y> void dbg(X x, Y...y) { cerr << ' ' << x; dbg(y...); }
