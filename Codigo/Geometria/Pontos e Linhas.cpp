@@ -2,7 +2,7 @@
 
 using namespace std;
 
-//G de Geometria - ricaxov v0.3.5 
+//G de Geometria - ricaxov v0.4 
 
 //Importante ->
 //Verificar a correlação entre angulos
@@ -68,16 +68,16 @@ struct line {
 		else { a = -(A.y - B.y) / (A.x - B.x); b = 1.0; c = -(a * A.x) - A.y; }
   }
 };
-line slope_to_line(const point& p, const ld& slope) { // (y = ax + b) -> (ax + by = c) usando um ponto e o gradiente da reta
+line slope_to_line(const point& p, const ld& slope) { // (y = ax + b) -> (ax + by = c) usando um ponto e o gradiente da linha
   return line(-slope, 1.0, -((-slope * p.x) + p.y)); //(SOMENTE LINHAS NÃO VERTICAIS)
 }
-bool parallel(const line& l1, const line& l2) { // return 1 se duas restas forem paralelas
+bool parallel(const line& l1, const line& l2) { // return 1 se duas linhas forem paralelas
   return (fabs(l1.a - l2.a) < eps) && (fabs(l1.b - l2.b) < eps);
 }
-bool same(const line& l1, const line& l2) { // return 1 se duas retas forem iguais
+bool same(const line& l1, const line& l2) { // return 1 se duas linhas forem iguais
   return parallel(l1, l2) && (fabs(l1.c - l2.c) < eps);
 }
-bool intersect(const line& l1, const line& l2, point& p) { // return 1 se as retas se intersectao => intersection at point p
+bool intersect(const line& l1, const line& l2, point& p) { // return 1 se as linhas se intersectao => intersection at point p
   if(parallel(l1, l2)) { return 0; }
   p.x = (l2.b * l1.c - l1.b * l2.c) / (l2.a * l1.b - l1.a * l2.b);
   if(fabs(l1.b) > eps) { p.y = -(l1.a * p.x + l1.c); }
@@ -112,7 +112,7 @@ ld angle(const point& a, const point& o, const point& b) { // encontra o angulo 
   vec oa(o, a), ob(o, b);
   return acos(dot(oa, ob) / sqrt(norm_sq(oa) * norm_sq(ob))); // retorna o angulo em rad
 }
-ld cross(const vec& a, const vec& b) { // produto cruzado entre vetores
+ld cross(const vec& a, const vec& b) { // produto cruzado entre vetores (usado pra fazer ccw check e collinear)
   return a.x * b.y - a.y * b.x; 
 }
 bool ccw(const point& p, const point& q, const point& r) { // retorna 1 se o ponto R estiver a esquerda da reta PQ
@@ -121,7 +121,7 @@ bool ccw(const point& p, const point& q, const point& r) { // retorna 1 se o pon
 bool collinear(const point& p, const point& q, const point& r) { // retorna 1 se o ponto R estiver na mesma linha que a linha PQ
   return fabs(cross(vec(p, q), vec(p, r))) < eps;
 }
-ld dist(const point& p, const point& a, const point& b, point &c) { // distancia minima entre um ponto p e o vetor A -> B [c guarda o ponto de interseção]
+ld dist(const point& p, const point& a, const point& b, point &c) { // distancia minima entre um ponto P e o vetor A -> B [c guarda o ponto de interseção]
   vec ap(a, p), ab(a, b);
   ld u = dot(ap, ab) / norm_sq(ab); // u é obtido por meio de uma projeção escalar de AP em AB (usando dot product)
   if(u < 0.0) {
@@ -138,5 +138,5 @@ ld dist(const point& p, const point& a, const point& b, point &c) { // distancia
 //continuar na pagina 112
 int main() {
   ios_base::sync_with_stdio(false); cin.tie(NULL);
-  // VERIFICAR OS COMENTARIOS E O CODIGO DNV PRA VER SE N TEM NENHUM ERRO
+  
 }
