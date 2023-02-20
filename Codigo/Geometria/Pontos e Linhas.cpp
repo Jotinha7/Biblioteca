@@ -19,6 +19,7 @@ using namespace std;
 //find angle between 2 points, using a third point ->
 //oa · ob = |oa| × |ob| × cos(θ) [θ -> angulo aôb]
 
+using ll = long long;
 using ld = long double;
 
 const ld eps = 1e-9; 
