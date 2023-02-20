@@ -99,7 +99,7 @@ struct vec {
 vec scale(const vec& v, const ld& s) { // escalonar um vetor
   return vec(v.x * s, v.y * s);
 }
-point translate(const point& p, const vec& v) { // transladar um vetor utilizando um ponto p
+point translate(const point& p, const vec& v) { // desloca um ponto p utilizando um vetor v
   return point(p.x + v.x, p.y + v.y);
 }
 ld dot(const vec& a, const vec& b) { // dot product (usado pra fazer produto vetorial)
