@@ -18,6 +18,8 @@ using namespace std;
 //g = (1.0 + sqrt(5.0)) / 2.0
 //find angle between 2 points, using a third point ->
 //oa · ob = |oa| × |ob| × cos(θ) [θ -> angulo aôb]
+//distancia de dois pontos na Terra -> 
+//formula de haversine
 
 using ll = long long;
 using ld = long double;
