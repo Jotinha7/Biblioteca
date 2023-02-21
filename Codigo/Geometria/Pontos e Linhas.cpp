@@ -2,7 +2,7 @@
 
 using namespace std;
 
-//G de Geometria - ricaxov v0.4 
+//G de Geometria - ricaxov v0.5.0 
 
 //Importante ->
 //Verificar a correlação entre angulos
@@ -22,7 +22,7 @@ using namespace std;
 //formula de haversine
 
 using ll = long long;
-using ld = long double;
+using ld = double;
 
 const ld eps = 1e-9; 
 const ld pi = acos(-1.0);
@@ -80,24 +80,31 @@ bool parallel(const line& l1, const line& l2) { // return 1 se duas linhas forem
 bool same(const line& l1, const line& l2) { // return 1 se duas linhas forem iguais
   return parallel(l1, l2) && (fabs(l1.c - l2.c) < eps);
 }
-bool intersect(const line& l1, const line& l2, point& p) { // return 1 se as linhas se intersectao => intersection at point p
+bool intersect(const line& l1, const line& l2, point& p) { // return 1 se as linhas se intersectao => intersection at point p (NAO SAO SEGMENTOS)
   if(parallel(l1, l2)) { return 0; }
   p.x = (l2.b * l1.c - l1.b * l2.c) / (l2.a * l1.b - l1.a * l2.b);
   if(fabs(l1.b) > eps) { p.y = -(l1.a * p.x + l1.c); }
   else { p.y = -(l2.a * p.x + l2.c); }
   return 1;
 }
+bool contains(const point& a, const point& b, const point& p) {
+	return dist(a, p) + dist(p, b) == dist(a, b);
+}
 
 // -------------------------------------------------------------------------------
 
 struct vec {
-  ld x, y;
+  ld x, y, z;
   vec(){ x = y = 0.0; }
   vec(const ld& X, const ld& Y) { x = X, y = Y; }
   vec(const point& A, const point& B) {
-    x = B.x - A.x;
-    y = B.y - A.y;
+    x = A.y - B.y;
+    y = B.x - A.x;
+    z = -x * A.x - y * A.y;
+    ld Z = sqrt(x * x + y * y);
+		if(fabs(Z) > eps) { x /= Z, y /= Z, z /= Z; }
   }
+  ld dist(point p) const { return x * p.x + y * p.y + z; }
 };
 vec scale(const vec& v, const ld& s) { // escalonar um vetor
   return vec(v.x * s, v.y * s);
@@ -138,7 +145,36 @@ ld dist(const point& p, const point& a, const point& b, point &c) { // distancia
   c = translate(a, scale(ab, u));// c pode ser visto como um ponto transladado e escalonado por u sobre o vetor A -> B
   return dist(p, c); // c = a + u * AB
 }
+ld det(ld a, ld b, ld c, ld d){ 
+	return a * d - b * c;
+}
+bool between(ld l, ld r, ld x){
+	return (min(l, r) <= x + eps) && (x <= max(l, r) + eps);
+}
+bool intersect_1d(ld a, ld b, ld c, ld d){
+	if (a > b) { swap(a, b); }
+	if (c > d) { swap(c, d); }
+	return (max(a, c) <= min(b, d) + eps);
+}
+bool intersect(point a, point b, point c, point d, point& left, point& right){ //intersect de segmentos (a, b) e (c, d) -> intersect at (l, r)
+	if (!intersect_1d(a.x, b.x, c.x, d.x) || !intersect_1d(a.y, b.y, c.y, d.y)) { return 0; }
+	vec m(a, b), n(c, d);
+	ld zn = det(m.x, m.y, n.x, n.y);
+	if(fabs(zn) < eps){
+		if (abs(m.dist(c)) > eps || abs(n.dist(a)) > eps) { return 0; }
+		if (b < a) { swap(a, b); }
+		if (d < c) { swap(c, d); }
+		left = max(a, c);
+		right = min(b, d);
+		return 1;
+	}
+	else{
+		left.x = right.x = -det(m.z, m.y, n.z, n.y) / zn;
+		left.y = right.y = -det(m.x, m.z, n.x, n.z) / zn;
+		return between(a.x, b.x, left.x) && between(a.y, b.y, left.y) && between(c.x, d.x, left.x) && between(c.y, d.y, left.y);
+	}
+}
 int main() {
   ios_base::sync_with_stdio(false); cin.tie(NULL);
-  
+	
 }
