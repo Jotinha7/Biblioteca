@@ -87,9 +87,6 @@ bool intersect(const line& l1, const line& l2, point& p) { // return 1 se as lin
   else { p.y = -(l2.a * p.x + l2.c); }
   return 1;
 }
-bool contains(const point& a, const point& b, const point& p) {
-	return dist(a, p) + dist(p, b) == dist(a, b);
-}
 
 // -------------------------------------------------------------------------------
 
