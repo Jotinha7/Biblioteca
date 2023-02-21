@@ -122,7 +122,7 @@ bool ccw(const point& p, const point& q, const point& r) { // retorna 1 se o pon
   return cross(vec(p, q), vec(p, r)) > eps;
 }
 bool collinear(const point& p, const point& q, const point& r) { // retorna 1 se o ponto R estiver na mesma linha que a linha PQ
-  return fabs(cross(vec(p, q), vec(p, r))) < eps;
+	return fabs(((q.y - p.y) * (r.x - q.x)) - ((r.y  - q.y) * (q.x - p.x))) < eps;
 }
 ld dist(const point& p, const point& a, const point& b, point &c) { // distancia minima entre um ponto P e o vetor A -> B [c guarda o ponto de interseção]
   vec ap(a, p), ab(a, b);
@@ -138,7 +138,6 @@ ld dist(const point& p, const point& a, const point& b, point &c) { // distancia
   c = translate(a, scale(ab, u));// c pode ser visto como um ponto transladado e escalonado por u sobre o vetor A -> B
   return dist(p, c); // c = a + u * AB
 }
-//continuar na pagina 112
 int main() {
   ios_base::sync_with_stdio(false); cin.tie(NULL);
   
