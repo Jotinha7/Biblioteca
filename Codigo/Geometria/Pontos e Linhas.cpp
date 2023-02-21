@@ -4,6 +4,9 @@ using namespace std;
 
 //G de Geometria - ricaxov v0.5.0 
 
+//PRECISA ORGANIZAR MTA COISA
+//TA TD FUDIDO, PRECISA ORGANIZAR
+
 //Importante ->
 //Verificar a correlação entre angulos
 //verificar a semelhança entre triangulos
