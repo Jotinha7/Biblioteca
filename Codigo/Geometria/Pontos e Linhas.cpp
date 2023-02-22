@@ -23,6 +23,8 @@ using namespace std;
 //oa · ob = |oa| × |ob| × cos(θ) [θ -> angulo aôb]
 //distancia de dois pontos na Terra -> 
 //formula de haversine
+//teorema de tales ->
+//verificar se dois pontos estao na mesma linha
 
 using ll = long long;
 using ld = double;
