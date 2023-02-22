@@ -8,7 +8,6 @@
 #define rall(x) x.rbegin(), x.rend()
 #define entrada freopen("input.txt", "r", stdin);
 #define saida freopen("output.txt", "w", stdout);
-#define inbounds(x, l, r) ((l) <= (x) && (x) <= (r))
 
 using namespace std;
 
