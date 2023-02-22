@@ -45,6 +45,7 @@ class kmp {
     }
     
     vector<pair<int, int>> occurrences(string& text) {
+      found.clear();
       find(text);
       return found;
     } 
