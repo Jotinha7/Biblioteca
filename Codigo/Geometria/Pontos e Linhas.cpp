@@ -25,6 +25,7 @@ using namespace std;
 //formula de haversine
 //teorema de tales ->
 //verificar se dois pontos estao na mesma linha
+//lei dos senos
 
 using ll = long long;
 using ld = double;
