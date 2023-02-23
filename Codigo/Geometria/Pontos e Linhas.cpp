@@ -27,6 +27,8 @@ using namespace std;
 //verificar se dois pontos estao na mesma linha
 //lei dos senos
 
+//ISSO AQUI É MAGIA -> http://ken.duisenberg.com/potw/archive/arch98/981113sol.html
+
 using ll = long long;
 using ld = double;
 
