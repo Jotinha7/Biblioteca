@@ -22,10 +22,10 @@ namespace seg {
   
   void prop(int p, int l, int r) {
     if(lazy[p]) {
-      seg[p] = lazy[p];
+      seg[p] += (r - l + 1) * lazy[p];
       if (l != r) {
-        lazy[2 * p] = lazy[p];
-        lazy[2 * p + 1] = lazy[p];
+        lazy[2 * p] += lazy[p];
+        lazy[2 * p + 1] += lazy[p];
       }
     }
     lazy[p] = 0;
@@ -42,7 +42,7 @@ namespace seg {
   int update(int a, int b, int x, int p = 1, int l = 0, int r = n - 1) {
     prop(p, l, r);
     if (a <= l and r <= b) {
-      lazy[p] = x;
+      lazy[p] += x;
       prop(p, l, r);
       return seg[p];
     }
