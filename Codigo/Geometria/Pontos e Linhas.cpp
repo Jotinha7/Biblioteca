@@ -79,7 +79,9 @@ struct line {
 		else { a = -(A.y - B.y) / (A.x - B.x); b = 1.0; c = -(a * A.x) - A.y; }
   }
 };
-line slope_to_line(const point& p, const ld& slope) { // (y = ax + b) -> (ax + by = c) usando um ponto e o gradiente da linha
+// do jeito q vc ta fazendo fica ax + by + c == 0 pq vc ta passando o x como -x ent basicamente ta passando pro outro lado
+//mas no fim das contas vai dar a mesma coisa so que com o sinal trocado
+line slope_to_line(const point& p, const ld& slope) { // (y = ax + b) -> (ax + by + c = 0) usando um ponto e o gradiente da linha
   return line(-slope, 1.0, -((-slope * p.x) + p.y)); //(SOMENTE LINHAS NÃO VERTICAIS)
 }
 bool parallel(const line& l1, const line& l2) { // return 1 se duas linhas forem paralelas
