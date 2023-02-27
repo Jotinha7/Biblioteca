@@ -46,7 +46,7 @@ namespace mo {
 
   void build(int _n, int _m, int* v2, Qry* q2) {
     n = _n, m = _m;
-    ans.rsz(m);
+    ans.resize(m);
     a = v2, q = q2;
     mo();
   }
