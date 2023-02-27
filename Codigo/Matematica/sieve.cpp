@@ -19,7 +19,7 @@ vector<int> sieve(int maxn) {
   return p;
 }
 
-// crivo segmentado O(n long n + sqrt(r) log r)
+// crivo segmentado O(n long n + sqrt(r) log r), n == r - l + 1
 // retorna um vetor do size do intervalo
 // para saber se o numero é primo basta fazer v[i - l] | l <= i <= r
 
