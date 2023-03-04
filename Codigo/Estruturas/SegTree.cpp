@@ -1,5 +1,5 @@
 namespace seg {
-  vector<int> seg(4 * MAXN), lazy(4 * MAXN), a;
+  vector<int> seg, lazy, a;
   int n;
 
   int combina(int a, int b) {
@@ -17,6 +17,7 @@ namespace seg {
   
   void build(int n2, vector<int>& v2) {
     n = n2, a = v2;
+    seg = lazy = vector<int> (4 * n);
     build();
   }
   
