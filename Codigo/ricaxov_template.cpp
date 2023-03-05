@@ -21,14 +21,14 @@ template<class X, class Y> istream& operator >> (istream& input, pair<X, Y>& var
 template<class X> istream& operator >> (istream& input, vector<X>& var) { for(auto &x : var) input >> x; return input; }
 template<class X, class Y> ostream& operator << (ostream& output, pair<X, Y> const& var) { output << "(" << var.ff << " " << var.ss << ")"; return output; }
 template<class X> ostream& operator << (ostream& output, vector<X> const& var) { for(int i = 0; i < sz(var); i++) output << (i > 0 ? " " : "") << var[i]; return output; }
-template<class X, class Y> ostream& operator << (ostream& output, map<X, Y> const& var) { bool first = true; for(auto const &[a, b] : var) { if(first == 0) output << ' '; first = false; output << '{' << a << " : " << b << '}'; } return output; }
+template<class X, class Y> ostream& operator << (ostream& output, map<X, Y> const& var) { bool first = true; for(auto const &[a, b] : var) { if(first == 0) output << " "; first = false; output << "{" << a << " : " << b << "}"; } return output; }
 template<class X> ostream& operator << (ostream& output, set<X> const& var) { for(auto it = var.begin(); it != var.end(); it++) output << (it != var.begin() ? " " : "") << *it; return output; }
 
 template<class...X> inline void in(X &...x) { ((cin >> x), ...); }
-template<class...X> inline void out(X const&...x) { ((cout << x << ' '), ...); cout << endl; }
+template<class...X> inline void out(X const&...x) { ((cout << x << " "), ...); cout << endl; }
 
 inline void dbg() { cerr << endl; }
-template<typename X, typename...Y> inline void dbg(X x, Y...y) { cerr << ' ' << x; dbg(y...); }
+template<typename X, typename...Y> inline void dbg(X x, Y...y) { cerr << " " << x; dbg(y...); }
 #define debug(...) cerr << "(" << #__VA_ARGS__ << "):", dbg(__VA_ARGS__), cerr << endl
 
 signed main() {
