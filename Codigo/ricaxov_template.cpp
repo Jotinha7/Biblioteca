@@ -17,25 +17,24 @@ using namespace std;
 using ll = long long;
 using ii = pair<int, int>;
 
-template<class T, class U> istream &operator>>(istream &is, pair<T, U> &p) { is >> p.ff >> p.ss; return is; }
-template<class T> istream &operator>>(istream &is, vector<T> &v) { for (auto &a : v) is >> a; return is; }
-template<class T, class U> ostream &operator<<(ostream &os, pair<T, U> const& p) { os << "(" << p.first << " " << p.second << ")"; return os; }
-template<class T> ostream &operator<<(ostream &os, vector<T> const& v) { for (int i = 0; i < v.size(); i++) os << (i ? " " : "") << v[i]; return os; }
-template<class T, class U> ostream &operator<<(ostream &os, map<T, U> const& m) { bool first = true; for (auto const& [k, v] : m) { if (!first) os << " "; first = false; os << "{" << k << " : " << v << "}"; } return os; }
-template<class T> ostream &operator<<(ostream &os, set<T> const& s) { for (auto it = s.begin(); it != s.end(); it++) os << (it != s.begin() ? " " : "") << *it; return os; }
- 
-template<class... A> void in(A &...a) { ((cin >> a), ...); }
-template<class... A> void out(A const&... a) { ((cout << a << " "), ...); cout << endl; }
+template<class X, class Y> istream& operator >> (istream& input, pair<X, Y>& var) { input >> var.ff >> var.ss; return input; }
+template<class X> istream& operator >> (istream& input, vector<X>& var) { for(auto &x : var) input >> x; return input; }
+template<class X, class Y> ostream& operator << (ostream& output, pair<X, Y> const& var) { output << "(" << var.ff << " " << var.ss << ")"; return output; }
+template<class X> ostream& operator << (ostream& output, vector<X> const& var) { for(int i = 0; i < sz(var); i++) output << (i > 0 ? " " : "") << var[i]; return output; }
+template<class X, class Y> ostream& operator << (ostream& output, map<X, Y> const& var) { bool first = true; for(auto const &[a, b] : var) { if(first == 0) output << ' '; first = false; output << '{' << a << " : " << b << '}'; } return output; }
+template<class X> ostream& operator << (ostream& output, set<X> const& var) { for(auto it = var.begin(); it != var.end(); it++) output << (it != var.begin() ? " " : "") << *it; return output; }
 
-void dbg() { cerr << endl; }
-template<typename X, typename...Y> void dbg(X x, Y...y) { cerr << ' ' << x; dbg(y...); }
+template<class...X> inline void in(X &...x) { ((cin >> x), ...); }
+template<class...X> inline void out(X const&...x) { ((cout << x << ' '), ...); cout << endl; }
+
+inline void dbg() { cerr << endl; }
+template<typename X, typename...Y> inline void dbg(X x, Y...y) { cerr << ' ' << x; dbg(y...); }
 #define debug(...) cerr << "(" << #__VA_ARGS__ << "):", dbg(__VA_ARGS__), cerr << endl
 
-auto main() -> signed {
+signed main() {
   ios_base::sync_with_stdio(false); cin.tie(NULL);
-  int tt = 1; in(tt);
+  int tt; in(tt);
   while(tt--) {
-
-
+    
   }
 }
