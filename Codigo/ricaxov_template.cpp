@@ -17,12 +17,6 @@ using namespace std;
 using ll = long long;
 using ii = pair<int, int>;
 
-const double eps = 1e-9;
-const int mod = 998244353;
-const int inf = 1000000000;
-const double pi = 3.141592653589793;
-const ll linf = 1000000000000000000;
-
 template<class T, class U> istream &operator>>(istream &is, pair<T, U> &p) { is >> p.ff >> p.ss; return is; }
 template<class T> istream &operator>>(istream &is, vector<T> &v) { for (auto &a : v) is >> a; return is; }
 template<class T, class U> ostream &operator<<(ostream &os, pair<T, U> const& p) { os << "(" << p.first << " " << p.second << ")"; return os; }
