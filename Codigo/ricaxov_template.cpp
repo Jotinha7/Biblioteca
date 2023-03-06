@@ -21,7 +21,7 @@ template<class X, class Y> istream& operator >> (istream& input, pair<X, Y>& var
 template<class X> istream& operator >> (istream& input, vector<X>& var) { for(auto &x : var) input >> x; return input; }
 template<class X, class Y> ostream& operator << (ostream& output, pair<X, Y> const& var) { output << "(" << var.ff << " " << var.ss << ")"; return output; }
 template<class X> ostream& operator << (ostream& output, vector<X> const& var) { for(int i = 0; i < sz(var); i++) output << (i > 0 ? " " : "") << var[i]; return output; }
-template<class X, class Y> ostream& operator << (ostream& output, map<X, Y> const& var) { bool first = true; for(auto const &[a, b] : var) { if(first == 0) output << " "; first = false; output << "{" << a << " : " << b << "}"; } return output; }
+template<class X, class Y> ostream& operator << (ostream& output, map<X, Y> const& var) { bool first = 1; for(auto const &[a, b] : var) { if(first == 0) output << " "; first = 0; output << "{" << a << " : " << b << "}"; } return output; }
 template<class X> ostream& operator << (ostream& output, set<X> const& var) { for(auto it = var.begin(); it != var.end(); it++) output << (it != var.begin() ? " " : "") << *it; return output; }
 
 template<class...X> inline void in(X &...x) { ((cin >> x), ...); }
