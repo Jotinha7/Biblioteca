@@ -33,7 +33,7 @@ template<typename X, typename...Y> inline void dbg(X x, Y...y) { cerr << " " << 
 
 signed main() {
   ios_base::sync_with_stdio(false); cin.tie(NULL);
-  int tt; in(tt);
+  int tt = 1; in(tt);
   while(tt--) {
     
   }
