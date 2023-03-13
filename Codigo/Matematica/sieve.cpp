@@ -1,8 +1,8 @@
 // crivo - O(n log n)
 
 vector<int> sieve(int maxn) {
-  bool prime[maxn + 1];
-  memset(prime, true, sizeof prime);
+  vector<bool> prime(maxn + 1, true);
+  prime[0] = prime[1] = false;
   for(int i = 2; i <= maxn; i++) {
     if(prime[i] == true) {
       for(long long j = (long long) i * i; j <= maxn; j += i) {
