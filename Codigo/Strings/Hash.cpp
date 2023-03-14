@@ -1,3 +1,5 @@
+//remove #define sz(x)
+//make everything long long
 class Hash { // dont forget to use #define int long long
 public:
   int qnt;
