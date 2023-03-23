@@ -26,7 +26,7 @@ template<class X> ostream& operator << (ostream& output, set<X> const& var) { fo
 
 template<class...X> inline void in(X &...x) { ((cin >> x), ...); }
 template<class...X> inline void out(X const&...x) { ((cout << x << " "), ...); cout << endl; }
-template<class...X> inline void print(X const&...x) { ((cout << a), ...); }
+template<class...X> inline void print(X const&...x) { ((cout << x), ...); }
 
 inline void dbg() { cerr << endl; }
 template<typename X, typename...Y> inline void dbg(X x, Y...y) { cerr << " " << x; dbg(y...); }
