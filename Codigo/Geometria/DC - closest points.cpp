@@ -3,6 +3,10 @@
 // after that you'd have the closest points from the left and from the right, now you need to find
 // if some point that goes from left to right can have a smaller distance
 
+#define all(x) x.begin(), x.end()
+
+using ld = double;
+
 struct point {
   ld x, y;
   point() { x = y = 0.0; }
