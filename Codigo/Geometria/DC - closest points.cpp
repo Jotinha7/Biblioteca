@@ -1,3 +1,4 @@
+// OBS: cp algo has a O(n * logn) implementation using vector merging
 // Divide and Conquer -> Find the distance of the two closest points inside a set of points O(n * (logn) ^ 2)
 // Idea: Make a line in the middle of the set and search recursively for the closest points there
 // after that you'd have the closest points from the left and from the right, now you need to find
