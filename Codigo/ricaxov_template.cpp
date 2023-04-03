@@ -4,9 +4,11 @@
 #define ss second
 #define pb push_back
 #define tos to_string
+#define eb emplace_back
 #define sz(x) (int)x.size()
 #define all(x) x.begin(), x.end()
 #define rall(x) x.rbegin(), x.rend()
+#define inside(x, l, r) ((l <= x) && (x <= r))
 #define entrada freopen("input.txt", "r", stdin);
 #define saida freopen("output.txt", "w", stdout);
 
@@ -33,7 +35,7 @@ template<typename X, typename...Y> inline void dbg(X x, Y...y) { cerr << " " << 
 #define debug(...) cerr << "(" << #__VA_ARGS__ << "):", dbg(__VA_ARGS__), cerr << endl
 
 signed main() {
-  ios_base::sync_with_stdio(false); cin.tie(NULL);
+  ios_base::sync_with_stdio(false); cin.tie(nullptr);
   int tt; in(tt); while(tt--) {
     
   }
