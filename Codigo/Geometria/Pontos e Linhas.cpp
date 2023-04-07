@@ -29,6 +29,8 @@ using namespace std;
 
 //ISSO AQUI É MAGIA -> http://ken.duisenberg.com/potw/archive/arch98/981113sol.html
 
+//criar sobrecargas pra input e output
+
 using ll = long long;
 using ld = double;
 
@@ -40,13 +42,15 @@ struct point {
   ld x, y;
   point() { x = y = 0.0; }
   point(const ld& X, const ld& Y) { x = X, y = Y; }
-  bool operator < (const point& other) const { // para ordenar os pontos
+  bool operator < (const point& other) const { 
 		if(fabs(x - other.x) > eps) { return x < other.x; }
 		return y < other.y;
 	}
-	bool operator == (const point& other) const { // para verificar se dois pontos sao iguais
+	bool operator == (const point& other) const {
 		return (fabs(x - other.x) < eps) && (fabs(y - other.y) < eps);
 	}
+  friend istream& operator >> (istream& input, point& var) { input >> var.x >> var.y; return input; }
+  friend ostream& operator << (ostream& output, point const& var) { output << "(" << var.x << " " << var.y << ")"; return output; }
 };
 ld dist(const point& a, const point& b) { // distancia entre dois pontos
   return sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
