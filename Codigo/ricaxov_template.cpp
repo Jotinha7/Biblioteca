@@ -8,7 +8,6 @@
 #define sz(x) (int)x.size()
 #define all(x) x.begin(), x.end()
 #define rall(x) x.rbegin(), x.rend()
-#define inside(x, l, r) ((l <= x) && (x <= r))
 #define entrada freopen("input.txt", "r", stdin);
 #define saida freopen("output.txt", "w", stdout);
 
