@@ -50,7 +50,9 @@ struct point {
 		return (fabs(x - other.x) < eps) && (fabs(y - other.y) < eps);
 	}
   friend istream& operator >> (istream& input, point& var) { input >> var.x >> var.y; return input; }
-  friend ostream& operator << (ostream& output, point const& var) { output << "(" << var.x << " " << var.y << ")"; return output; }
+  friend istream& operator >> (istream& input, vector<point>& var) { for(auto &v : var) input >> v.x >> v.y; return input; }
+  friend ostream& operator << (ostream& output, point const& var) { output << "(" << var.x << ", " << var.y << ")"; return output; }
+	friend ostream& operator << (ostream& output, vector<point> const& var) { for(int i = 0; i < sz(var); i++) output << (i > 0 ? " " : "") << var[i]; return output; }
 };
 ld dist(const point& a, const point& b) { // distancia entre dois pontos
   return sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
