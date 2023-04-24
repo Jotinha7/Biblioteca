@@ -4,7 +4,7 @@ namespace ms_tree {
   int n;
 
   vector<int> combina(const vector<int>& x, const vector<int>& y) {
-    vector<int> z(sz(x) + sz(y));
+    vector<int> z((int) x.size() + (int) y.size());
     merge(x.begin(), x.end(), y.begin(), y.end(), z.begin());
     return z;
   }
