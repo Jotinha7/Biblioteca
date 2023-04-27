@@ -1,41 +1,55 @@
 #include <bits/stdc++.h>
-#define endl '\n'
-#define ff first
-#define ss second
-#define pb push_back
-#define tos to_string
-#define eb emplace_back
-#define sz(x) (int)x.size()
+using namespace std;
+ 
+// Template (v1.5 - 2023) (ricaxov) {{{
+ 
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+template<class X> using ordered_set = tree<X, null_type, less<X>, rb_tree_tag, tree_order_statistics_node_update>;
+ 
+#define int long long
+#define fastio ios::sync_with_stdio(false); cin.tie(nullptr)
+ 
+template<class X> using V = vector<X>;
+template<class X> using min_priority_queue = priority_queue<X, vector<X>, greater<X>>;
+using ii = pair<int, int>;
+using iii = array<int, 3>;
+ 
 #define all(x) x.begin(), x.end()
 #define rall(x) x.rbegin(), x.rend()
-#define entrada freopen("input.txt", "r", stdin);
-#define saida freopen("output.txt", "w", stdout);
-
-#define int long long
-
-using namespace std;
-
-using ll = long long;
-using ii = pair<int, int>;
-
-template<class X, class Y> istream& operator >> (istream& input, pair<X, Y>& var) { input >> var.ff >> var.ss; return input; }
-template<class X> istream& operator >> (istream& input, vector<X>& var) { for(auto &x : var) input >> x; return input; }
-template<class X, class Y> ostream& operator << (ostream& output, pair<X, Y> const& var) { output << "(" << var.ff << " " << var.ss << ")"; return output; }
-template<class X> ostream& operator << (ostream& output, vector<X> const& var) { for(int i = 0; i < sz(var); i++) output << (i > 0 ? " " : "") << var[i]; return output; }
-template<class X, class Y> ostream& operator << (ostream& output, map<X, Y> const& var) { bool first = 1; for(auto const &[a, b] : var) { if(first == 0) output << " "; first = 0; output << "{" << a << " : " << b << "}"; } return output; }
-template<class X> ostream& operator << (ostream& output, set<X> const& var) { for(auto it = var.begin(); it != var.end(); it++) output << (it != var.begin() ? " " : "") << *it; return output; }
-
-template<class...X> inline void in(X &...x) { ((cin >> x), ...); }
-template<class...X> inline void out(X const&...x) { ((cout << x << " "), ...); cout << endl; }
-template<class...X> inline void print(X const&...x) { ((cout << x), ...); }
-
-inline void dbg() { cerr << endl; }
-template<typename X, typename...Y> inline void dbg(X x, Y...y) { cerr << " " << x; dbg(y...); }
-#define debug(...) cerr << "(" << #__VA_ARGS__ << "):", dbg(__VA_ARGS__), cerr << endl
-
-signed main() {
-  ios_base::sync_with_stdio(false); cin.tie(nullptr);
-  int tt; in(tt); while(tt--) {
-    
-  }
+#define sz(x) (int)x.size()
+#define pb push_back
+#define eb emplace_back
+#define ff first
+#define ss second
+#define xov "┌( ಠ_ಠ)┘"
+#define mem(x, y) memset(x, y, sizeof(x));
+#define entrada freopen("in.txt", "r", stdin);
+#define saida freopen("out.txt", "w", stdout);
+ 
+template<class X, class Y> auto& operator >> (istream &is, pair<X, Y> &var) { return is >> var.ff >> var.ss; }
+template<class X, class Y> auto& operator << (ostream &os, pair<X, Y> const& var) { return os << '(' << var.ff << ' ' << var.ss << ')'; }
+template<class X> auto& operator >> (istream& is, vector<X> &var) { for (auto &x : var) is >> x; return is; }
+template<class X> auto& operator << (ostream& os, vector<X> const &var) { auto sep = ""; for(auto x : var) os << sep << x, sep = " "; return os; }
+template<class X> auto& operator << (ostream& os, set<X> const &var) { auto sep = ""; for(auto x : var) os << sep << x, sep = " "; return os; }
+template<class X> auto& operator << (ostream& os, multiset<X> const &var) { auto sep = ""; for(auto x : var) os << sep << x, sep = " "; return os; }
+template<class X> auto& operator << (ostream& os, unordered_set<X> const &var) { auto sep = ""; for(auto x : var) os << sep << x, sep = " "; return os; }
+template<class X> auto& operator << (ostream& os, ordered_set<X> const &var) { auto sep = ""; for(auto x : var) os << sep << x, sep = " "; return os; }
+template<class X> auto& operator << (ostream& os, deque<X> const &var) { auto sep = ""; for (auto x : var) os << sep << x, sep = " "; return os; }
+template<class X, class Y> auto& operator << (ostream& os, map<X, Y> const &var) { auto sep = ""; for(auto x : var) os << sep << "{" << x.ff << " : " << x.ss << "}", sep = " "; return os; }
+template<class X, class Y> auto& operator << (ostream& os, unordered_map<X, Y> const &var) { auto sep = ""; for(auto x : var) os << sep << "{" << x.ff << " : " << x.ss << "}", sep = " "; return os; }
+ 
+template<class...X> void in(X &...x) { ((cin >> x), ...); }
+template<class...X> void out(X const&...x) { auto sep = ""; ((cout << sep << x, sep = " "), ...); cout << '\n'; }
+template<class...X> void print(X const&...x) { ((cout << x), ...); }
+ 
+void dbg() { cerr << '\n'; }
+template<typename X, typename...Y> void dbg(X x, Y...y) { cerr << " " << x; dbg(y...); }
+#define debug(...) cerr << "(" << #__VA_ARGS__ << "):", dbg(__VA_ARGS__), cerr << '\n'
+// }}}
+ 
+auto main() -> signed {
+  fastio;
+  
 }
