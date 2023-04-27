@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
  
-// Template (v1.5 - 2023) (ricaxov) {{{
+// {{{
  
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
