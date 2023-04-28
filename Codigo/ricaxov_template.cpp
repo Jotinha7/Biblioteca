@@ -23,7 +23,7 @@ using iii = array<int, 3>;
 #define ff first
 #define ss second
 #define xov "┌( ಠ_ಠ)┘"
-#define mem(x, y) memset(x, y, sizeof(x));
+#define mem(x, y) memset(x, y, sizeof(x))
 #define inbounds(x, l, r) (l <= x && x <= r)
 #define fillin freopen("in.txt", "r", stdin);
 #define fillout freopen("out.txt", "w", stdout);
