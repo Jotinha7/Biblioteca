@@ -25,8 +25,8 @@ using iii = array<int, 3>;
 #define xov "┌( ಠ_ಠ)┘"
 #define mem(x, y) memset(x, y, sizeof(x));
 #define inbounds(x, l, r) (l <= x && x <= r)
-#define entrada freopen("in.txt", "r", stdin);
-#define saida freopen("out.txt", "w", stdout);
+#define fillin freopen("in.txt", "r", stdin);
+#define fillout freopen("out.txt", "w", stdout);
 
 template<class X, class Y> auto& operator >> (istream& is, pair<X, Y>& var) { is >> var.ff >> var.ss; return is; }
 template<class X, class Y> auto& operator << (ostream& os, pair<X, Y> const& var) { os << "(" << var.ff << " " << var.ss << ")"; return os; }
