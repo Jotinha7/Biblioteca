@@ -6,15 +6,15 @@ using namespace std;
 #include <ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
 template<class X> using ordered_set = tree<X, null_type, less<X>, rb_tree_tag, tree_order_statistics_node_update>;
- 
+
 #define int long long
 #define fastio ios::sync_with_stdio(false); cin.tie(nullptr)
- 
+
 template<class X> using V = vector<X>;
 template<class X> using min_priority_queue = priority_queue<X, vector<X>, greater<X>>;
 using ii = pair<int, int>;
-using iii = tuple<int, int, int>;
- 
+using iii = array<int, 3>;
+
 #define all(x) x.begin(), x.end()
 #define rall(x) x.rbegin(), x.rend()
 #define sz(x) (int)x.size()
@@ -24,9 +24,10 @@ using iii = tuple<int, int, int>;
 #define ss second
 #define xov "┌( ಠ_ಠ)┘"
 #define mem(x, y) memset(x, y, sizeof(x));
+#define inbounds(x, l, r) (l <= x && x <= r)
 #define entrada freopen("in.txt", "r", stdin);
 #define saida freopen("out.txt", "w", stdout);
- 
+
 template<class X, class Y> auto& operator >> (istream& is, pair<X, Y>& var) { is >> var.ff >> var.ss; return is; }
 template<class X, class Y> auto& operator << (ostream& os, pair<X, Y> const& var) { os << "(" << var.ff << " " << var.ss << ")"; return os; }
 template<class X> auto& operator >> (istream& is, vector<X>& var) { for(auto &x : var) is >> x; return is; }
@@ -38,11 +39,11 @@ template<class X> auto& operator << (ostream& os, ordered_set<X> const& var) { a
 template<class X> auto& operator << (ostream& os, deque<X> const& var) { auto sep = ""; for(auto x : var) os << sep << x, sep = " "; return os; }
 template<class X, class Y> auto& operator << (ostream& os, map<X, Y> const& var) { auto sep = ""; for(auto x : var) os << sep << "{" << x.ff << " : " << x.ss << "}", sep = " "; return os; }
 template<class X, class Y> auto& operator << (ostream& os, unordered_map<X, Y> const& var) { auto sep = ""; for(auto x : var) os << sep << "{" << x.ff << " : " << x.ss << "}", sep = " "; return os; }
- 
+
 template<class...X> void in(X &...x) { ((cin >> x), ...); }
 template<class...X> void out(X const&...x) { auto sep = ""; ((cout << sep << x, sep = " "), ...); cout << "\n"; }
 template<class...X> void print(X const&...x) { ((cout << x), ...); }
- 
+
 void dbg() { cerr << "\n"; }
 template<typename X, typename...Y> void dbg(X x, Y...y) { cerr << " " << x; dbg(y...); }
 #define debug(...) cerr << "(" << #__VA_ARGS__ << "):", dbg(__VA_ARGS__), cerr << "\n"
