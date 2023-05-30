@@ -32,7 +32,6 @@ class LCA {
     int n, lg;
     vector<int> father, depth;
     vector<vector<int>> anc, g;
-
     void build(int root) {
       auto dfs = [&](auto self, int u, int p = -1, int nvl = 0) -> void {
         depth[u] = nvl;
