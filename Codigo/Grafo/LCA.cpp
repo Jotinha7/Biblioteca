@@ -37,15 +37,14 @@ class LCA {
         depth[u] = nvl;
         for(auto v : g[u]) {
           if(v != p) {
-            father[v] = u;
+            anc[v][0] = father[v] = u;
             self(self, v, u, nvl + 1);
           }
         }
       };
       dfs(dfs, root);
-      for(int v = 0; v < n; v++) {
-        anc[v][0] = father[v];
-        for(int i = 1; i <= lg; i++) {
+      for(int i = 1; i <= lg; i++) {
+          for(int v = 0; v < n; v++) {
           anc[v][i] = anc[anc[v][i - 1]][i - 1];
         }
       }
