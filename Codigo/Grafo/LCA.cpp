@@ -45,7 +45,7 @@ class LCA {
       dfs(dfs, root);
       for(int i = 1; i <= lg; i++) {
           for(int v = 0; v < n; v++) {
-          anc[v][i] = anc[anc[v][i - 1]][i - 1];
+            anc[v][i] = anc[anc[v][i - 1]][i - 1];
         }
       }
     }
