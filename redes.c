@@ -11,7 +11,7 @@ struct meio{
 	int mensagem;
 };
 
-int main(){
+int main(){		
 	struct meio *at = malloc(sizeof(struct meio));
 	int id = shmget(IPC_PRIVATE, sizeof(at), IPC_CREAT | 0666);
 	at = (struct meio*) shmat(id, NULL, 0);
