@@ -7,14 +7,14 @@
 #include <stdio.h>
 
 struct meio{
-	int livre;
-	int mensagem;
+  int livre;
+  int mensagem;
 };
 
-int main(){		
-	struct meio *at = malloc(sizeof(struct meio));
-	int id = shmget(IPC_PRIVATE, sizeof(at), IPC_CREAT | 0666);
-	at = (struct meio*) shmat(id, NULL, 0);
+int main(){
+  struct meio *at = malloc(sizeof(struct meio));
+  int id = shmget(IPC_PRIVATE, sizeof(at), IPC_CREAT | 0666);
+  at = (struct meio*) shmat(id, NULL, 0);
   at->livre=1;
   fork();
   srandom(getpid());
