@@ -9,6 +9,7 @@
 struct pacote {
   int destino[6];
   int origem[6];
+  int type;
   int dados[1500];
 };
 
