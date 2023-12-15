@@ -26,15 +26,19 @@ int main(){
   at = (struct meio*) shmat(id, NULL, 0);
   at->livre=1;
   pid_t k = fork();
+  
   if(k == 0) {
+    
     for(int i = 0; i < 8; i++) {
       fork();
     }
     
-    srandom(getpid());
+    srandom(time(NULL));
     
     while(1){
+      
       while(!(at->livre));
+      
       at->livre = 0;
       struct pacote guarda;
       for (int i = 0; i < 6; i++) {
@@ -44,6 +48,7 @@ int main(){
 			for (int i = 0; i < 1500; i++) {
 				guarda.dados[i] = 256 + rand() % 100000;
 			}
+      
 			at->atual = guarda;
 			printf("origem atual: ");
 			for (int i = 0; i < 6; i++) {
@@ -55,13 +60,12 @@ int main(){
 			}
 			
       if(at->atual.dados != guarda.dados) {
-        printf("colidiu com id: %d\n", getpid());
+        printf("colidiu!!!!!!!!");
       }
+      
       at->livre = 1;
-      sleep(3);
+      sleep(2);
     }
-    at->livre=1;
-    sleep(rand() % 5);
   } else {
     printf("processo pai\n");
   }
