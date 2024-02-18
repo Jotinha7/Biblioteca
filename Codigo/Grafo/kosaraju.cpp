@@ -1,3 +1,5 @@
+// o sz do grafo retornado pelo compress é o nmr de scc
+
 stack<int> ord;
 vector<int> vis(maxn), comp(maxn);
 vector<vector<int>> g(maxn), rg(maxn);
