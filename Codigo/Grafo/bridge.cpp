@@ -1,6 +1,6 @@
-int TIMER, n;
-vector<int> pre(n), low(n), vis(n);
-vector<vector<int>> g(n);
+int TIMER;
+vector<int> pre(maxn), low(maxn), vis(maxn);
+vector<vector<int>> g(maxn);
 vector<pair<int, int>> bridge;
 
 void dfs(int u, int p, int r) {
@@ -21,7 +21,7 @@ void dfs(int u, int p, int r) {
   }
 }
 
-vector<pair<int, int>> find_all_bridges() {
+vector<pair<int, int>> find_all_bridges(int n) {
   for(int i = 0; i < n; i++) {
     if(!vis[i]) {
       TIMER = 0;
