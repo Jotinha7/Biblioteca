@@ -1,11 +1,18 @@
+//cada ponto de articulacao é um no
+//toda ponte é um no
+//toda componente biconectada é um no
+//cuidado com n == 1 ou quando nao tem ponto de articulacao
 int TIMER, CONT;
 stack<int> pilha;
 vector<int> pre(maxn), low(maxn), vis(maxn), compEdge(maxn);
-vector<int> vis_aresta(maxn), pontoDeArticulacao(maxn), visComp(maxn);
+vector<int> vis_aresta(maxn), pontoDeArticulacao(maxn);
 vector<vector<pair<int, int>>> g(maxn); // {vertice, id da aresta}
 
 void novaCompBiconexa(int idEdge) {
   int a;
+  if(pilha.empty()) {
+    return;
+  }
   do {
     a = pilha.top();
     pilha.pop();
@@ -17,10 +24,9 @@ void novaCompBiconexa(int idEdge) {
   CONT++;
 }
 
-void dfs(int u, int p, int r) {
+void dfs(int u, int r) {
   vis[u] = 1;
   pre[u] = low[u] = TIMER++;
-  pilha.push(u);
   int qtdFilhos = 0;
   for(auto [nxt, idx] : g[u]) {
     if(vis_aresta[idx]) {
@@ -30,13 +36,13 @@ void dfs(int u, int p, int r) {
     vis_aresta[idx] = 1;
     if(!vis[nxt]) {
       qtdFilhos += 1;
-      dfs(nxt, u, r);
+      dfs(nxt, r);
       low[u] = min(low[u], low[nxt]);
       bool novaComp = false;
-      if(u == r && qtdFilhos == 2) {
+      if(u == r && qtdFilhos >= 2) {
         novaComp = true;
       }
-      if(u != r && low[nxt] == pre[u]) {
+      if(u != r && low[nxt] >= pre[u]) {
         novaComp = true;
       }
       if(novaComp) {
@@ -50,14 +56,16 @@ void dfs(int u, int p, int r) {
 }
 
 vector<vector<int>> blockCutTree(int n) {
+  CONT = 0;
   for(int i = 0; i < n; i++) {
     if(!vis[i]) {
       TIMER = 0;
-      dfs(i, i, i);
+      dfs(i, i);
       novaCompBiconexa(-1);
     }
   }
-  vector<vector<int>> ng(CONT + n);
+  vector<int> visComp(CONT + n);
+  vector<vector<int>> ng(CONT + accumulate(pontoDeArticulacao.begin(), pontoDeArticulacao.begin() + n, 0));
   for(int i = 0; i < n; i++) {
     if(pontoDeArticulacao[i] != 1) {
       continue;
