@@ -22,7 +22,7 @@ void dfs(int u, int p, int r) {
       }
     }
   }
-  if(u == r && qtd_filho >= 2) {
+  if(u == r && qtd_filho == 2) {
     res.push_back(u);
   }
   if(u != r && articulation_point) {
