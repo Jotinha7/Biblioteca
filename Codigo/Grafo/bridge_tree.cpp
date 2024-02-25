@@ -4,7 +4,7 @@ vector<int> pre(maxn), low(maxn), vis(maxn), comp(maxn), vis_aresta(maxn);
 vector<vector<int>> vertices_comp(maxn);
 vector<vector<pair<int, int>>> g(maxn); // {vertice, id da aresta}
 
-void dfs(int u, int p, int r) {
+void dfs(int u, int r) {
   vis[u] = 1;
   pre[u] = low[u] = TIMER++;
   pilha.push(u);
@@ -14,7 +14,7 @@ void dfs(int u, int p, int r) {
     }
     vis_aresta[idx] = 1;
     if(!vis[nxt]) {
-      dfs(nxt, u, r);
+      dfs(nxt, r);
       low[u] = min(low[u], low[nxt]);
     } else {
       low[u] = min(low[u], pre[nxt]);
@@ -36,7 +36,7 @@ vector<vector<int>> bridge_tree(int n) {
   for(int i = 0; i < n; i++) {
     if(!vis[i]) {
       TIMER = 0;
-      dfs(i, i, i);
+      dfs(i, i);
     }
   }
   vector<vector<int>> tr(n);
