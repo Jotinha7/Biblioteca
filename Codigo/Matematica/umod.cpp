@@ -31,6 +31,9 @@ struct umod{
       u += mod;
     return u;
   }
+  friend std::ostream& operator<<(std::ostream& os, const umod& a){ return os << a.val; }
+  friend std::istream& operator>>(std::istream& is, umod& a){ U x; is >> x; a = umod(x); return is; }
+
 };
 
 using U = umod<int, 1000000007>;
